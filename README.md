@@ -33,3 +33,4 @@ options
 |----------|---------|-------------|
 | ttl      | 60      | How long you want it to live in the redis database |
 | keyValue | req.authorization.credentials | The key to save in the redis database |
+| prefix   | ''      | prefix to be included with each redis entry |
