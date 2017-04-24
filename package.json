@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Akirix/node-duplicate-req/issues"
   },
-  "homepage": "https://github.com/Akirix/node-duplicate-req#readme"
+  "homepage": "https://github.com/Akirix/node-duplicate-req#readme",
+  "dependencies": {
+    "md5": "^2.2.1"
+  }
 }
