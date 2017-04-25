@@ -1,5 +1,6 @@
+var DuplicateCheck = require( './lib/duplicate-check.js' );
 module.exports = {
     createMiddleware: function( redisClient, options ){
-        return require( './lib/duplicate-check.js' )( redisClient, options );
+        return new DuplicateCheck( redisClient, options );
     }
 };

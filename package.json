@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Akirix/node-duplicate-req#readme",
   "dependencies": {
+    "lodash": "^4.17.4",
     "md5": "^2.2.1"
   }
 }
