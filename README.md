@@ -29,9 +29,10 @@ time is passed, the default ttl time is 60 seconds.
 options
 ---------
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| ttl      | 60      | How long you want it to live in the redis database |
-| keyValue | req.authorization.credentials | The key to save in the redis database |
-| prefix   | ''      | prefix to be included with each redis entry |
-| ignoreEmptyBody | true | When set to true it does not save empty object in redis database |
+| Property | DataType | Default | Description |
+|----------|----------|---------|-------------|
+| ttl      | Number | 60 | How long you want it to live in the redis database |
+| keyValue | String | req.authorization.credentials | The key to save in the redis database |
+| prefix   | String | ''      | prefix to be included with each redis entry |
+| ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
+| ignoredProperties | Array | [] | Properties you want ignored from req object, default empty array |
