@@ -17,14 +17,18 @@ Usage
 -----
 
 ```javascript
-var dupCheck = require('node-duplicate-req');
+var dupCheck = require('node-duplicate-req')( redisClient ) ;
 
-var dupCheckMiddleware = dupCheck.createMiddleware( redisClient, { ttl: 30, keyValue: 'req.user.id' } );
+var dupCheckMiddleware = dupCheck.middleware( { ttl: 30, keyValue: 'req.user.id', ignoreProperties[ 'user.age', 'user.notes' } );
+
+server.post( '/users', dupCheckMiddleware );
 ```
+first create an instance of node-duplicate-req by passing in redisClient, then create the middleware using options object, if
+you just want the defaults pass in empty object. Defaults are at the bottom of the readme
 
-Set first argument to redis client, and the second argument is a options object that you can set to a specific "expire" time
-and key value you want to use to store in redis; If no keyValue is provided req.authorization.credentials will be used. If no ttl
-time is passed, the default ttl time is 60 seconds.
+```javascript
+var dupCheckMiddleware = dupCheck.middleware( {} );
+```
 
 options
 ---------
@@ -35,4 +39,4 @@ options
 | keyValue | String | req.authorization.credentials | The key to save in the redis database |
 | prefix   | String | ''      | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
-| ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array |
+| ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array. Give absolute path to property |
