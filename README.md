@@ -35,4 +35,4 @@ options
 | keyValue | String | req.authorization.credentials | The key to save in the redis database |
 | prefix   | String | ''      | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
-| ignoredProperties | Array | [] | Properties you want ignored from req object, default empty array |
+| ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array |
