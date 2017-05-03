@@ -28,7 +28,7 @@ var dupCheck = require('node-duplicate-req')( redisClient, { keyProperty: 'req.u
 ```
 Then create the middleware you want to use, here you can also pass in an options object that will only be used for this specific endpoint.
 ```javascript
-var userDupCheckMiddleware = dupCheck.middleware( { prefix: 'users-', ignoreProperties[ 'user.age', 'user.notes' } );
+var userDupCheckMiddleware = dupCheck.middleware( { prefix: 'users-', ignoreProperties: [ 'user.age', 'user.notes'] } );
 server.post( '/users', dupCheckMiddleware );
 ```
 Or create middleware without options, Defaults are at the bottom of the readme
@@ -41,7 +41,7 @@ options
 
 | Property | DataType | Default | Description |
 |----------|----------|---------|-------------|
-| ttl      | Number | 60 | How long you want it to live in the redis database |
+| ttl      | Number | 60 | How many seconds you want it to live in the redis database |
 | keyValue | String | req.authorization.credentials + method and route| The key to save in the redis database |
 | prefix   | String | '' | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
