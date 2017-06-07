@@ -50,4 +50,4 @@ options
 | prefix   | String   | '' | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
 | ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array. Give absolute path to property |
-| logFile  | String   | No default | path to log file you want node dup check to write to |
+| logPath  | String   | '../../tmp' | Absolute path to log file you want node dup check to write to. Default tmp folder |
