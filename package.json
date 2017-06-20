@@ -1,6 +1,6 @@
 {
   "name": "node-duplicate-req",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A lightweight request duplicate check for api side.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,8 @@
   "homepage": "https://github.com/Akirix/node-duplicate-req#readme",
   "dependencies": {
     "lodash": "^4.17.4",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "moment-timezone": "^0.5.13",
+    "winston": "^2.3.1"
   }
 }
