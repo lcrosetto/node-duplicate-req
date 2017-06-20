@@ -29,7 +29,8 @@ var dupCheck = require('node-duplicate-req')( redisClient, { keyProperty: 'req.u
 Then create the middleware you want to use, here you can also pass in an options object that will only be used for this specific endpoint.
 ```javascript
 var userDupCheckMiddleware = dupCheck.middleware( { prefix: 'users-', ignoreProperties: [ 'user.age', 'user.notes'] } );
-server.post( '/users', dupCheckMiddleware );
+var users = require('../controllers/users');
+server.post( '/users', dupCheckMiddleware, users.create );
 ```
 Or create middleware without options, Defaults are at the bottom of the readme
 ```javascript
@@ -46,3 +47,4 @@ options
 | prefix   | String | '' | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
 | ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array. Give absolute path to property |
+| logPath  | String   | __dirname + '/../../../tmp' | Absolute path to log file you want node dup check to write to. Default tmp folder on api |
