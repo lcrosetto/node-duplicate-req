@@ -1,6 +1,6 @@
 {
   "name": "node-duplicate-req",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "A lightweight request duplicate check for api side.",
   "main": "index.js",
   "scripts": {
