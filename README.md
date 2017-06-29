@@ -38,10 +38,12 @@ var dupCheckMiddleware = dupCheck.middleware(function( err, req, res, next){
 var users = require('../controllers/users');
 server.post('/users', dupCheckMiddleware, users.create);
 ```
-**NOTE:** Above example you can pass in an options object at instantiation for shared options between all middleware
-or you can pass in when building the middleware for options specific to that endpoint.
+**NOTE:** Above example you can pass in an options object at instantiation for shared options between all middleware.
+You can also pass in an options object when building the middleware for options specific to that endpoint (below).
 ```javascript
-options = {
+var redis = require('redis');
+var redisClient = redis.createClient();
+var options = {
     keyValue: 'req.user.id',
     ttl: 30
 }
