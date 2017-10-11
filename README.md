@@ -36,7 +36,8 @@ Or create middleware without options, Defaults are at the bottom of the readme
 ```javascript
 var dupCheckMiddleware = dupCheck.middleware();
 ```
-
+Optional (Custom Request Override Header):
+- 'X-Override-DupCheck' : if on the request object, will override the function, allowing the request to skip the duplicate checking process all together
 options
 ---------
 
@@ -47,4 +48,9 @@ options
 | prefix   | String   | '' | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
 | ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array. Give absolute path to property |
-| LoggerFunction  | Object   | null | Logger Object that ties in with source to let you have control as things will be reported out to it |
+| infoLogFunc  | Function   | null | Function to handle your info logs |
+| errorLogFunc  | Function   | null | Function to handle your error logs |
+| ovrLogFunc  | Function   | null | Function to handle your logs when the request is overridden by a header |
+| infoLogFunc  | Function   | null | Function to handle your info logs |
+| customDupMsg  | String   | "Duplicate request detected" | Custom string message to be sent back in the response for duplicates |
+| customErrMsg  | String   | "Internal server error has occurred" | Custom string message to be sent back in the response for errors |
