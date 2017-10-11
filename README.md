@@ -51,6 +51,5 @@ options
 | infoLogFunc  | Function   | null | Function to handle your info logs |
 | errorLogFunc  | Function   | null | Function to handle your error logs |
 | ovrLogFunc  | Function   | null | Function to handle your logs when the request is overridden by a header |
-| infoLogFunc  | Function   | null | Function to handle your info logs |
 | customDupMsg  | String   | "Duplicate request detected" | Custom string message to be sent back in the response for duplicates |
 | customErrMsg  | String   | "Internal server error has occurred" | Custom string message to be sent back in the response for errors |
