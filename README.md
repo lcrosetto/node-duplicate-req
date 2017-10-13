@@ -37,7 +37,7 @@ Or create middleware without options, Defaults are at the bottom of the readme
 var dupCheckMiddleware = dupCheck.middleware();
 ```
 Optional (Custom Request Override Header):
-- 'X-Override-DupCheck' : if on the request object, will override the function, allowing the request to skip the duplicate checking process all together
+- 'x-override-dupcheck' : if on the request object, will override the function, allowing the request to skip the duplicate checking process all together
 options
 ---------
 
