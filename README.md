@@ -36,11 +36,8 @@ Or create middleware without options, Defaults are at the bottom of the readme
 ```javascript
 var dupCheckMiddleware = dupCheck.middleware();
 ```
-
-You can also pass in a log file path from where you require node-duplicate-req.
-```javascript
-var dupCheck = require('node-duplicate-req')( redisClient, { logPath: __dirname + '/logs' } );
-
+Optional (Custom Request Override Header):
+- 'x-override-dupcheck' : if on the request object, will override the function, allowing the request to skip the duplicate checking process all together
 options
 ---------
 
@@ -51,4 +48,8 @@ options
 | prefix   | String   | '' | prefix to be included with each redis entry |
 | ignoreEmptyBody | Boolean | true | When set to true it does not save empty object in redis database |
 | ignoreProperties | Array | [] | Properties you want ignored from req object, default empty array. Give absolute path to property |
-| logPath  | String   | __dirname + '/../../../tmp' | Absolute path to log file you want node dup check to write to. Default tmp folder on api |
+| infoLogFunc  | Function   | null | Function to handle your info logs |
+| errorLogFunc  | Function   | null | Function to handle your error logs |
+| ovrLogFunc  | Function   | null | Function to handle your logs when the request is overridden by a header |
+| customDupMsg  | String   | "Duplicate request detected" | Custom string message to be sent back in the response for duplicates |
+| customErrMsg  | String   | "Internal server error has occurred" | Custom string message to be sent back in the response for errors |
